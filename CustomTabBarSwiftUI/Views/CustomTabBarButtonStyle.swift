@@ -12,6 +12,8 @@ struct CustomTabBarButtonStyle: ButtonStyle {
         configuration.label
             .opacity(configuration.isPressed ? 0.9 : 1)
             .scaleEffect(configuration.isPressed ? 0.95 : 1)
+            //.foregroundColor(configuration.isPressed ? Color(.systemRed) : .primary)
+            
     }
    
 }

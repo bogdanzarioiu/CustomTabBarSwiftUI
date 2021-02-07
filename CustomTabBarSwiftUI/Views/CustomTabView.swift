@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CustomTabView: View {
     @Binding var selectedTab: Tab
+    @Binding var isSheetShowing: Bool
     var body: some View {
         HStack {
             Spacer()
@@ -29,7 +30,7 @@ struct CustomTabView: View {
             }
             Spacer()
             Button {
-                
+                self.isSheetShowing.toggle()
             } label: {
                 ZStack {
                     Circle()
@@ -70,6 +71,6 @@ struct CustomTabView: View {
 
 struct CustomTabView_Previews: PreviewProvider {
     static var previews: some View {
-        CustomTabView(selectedTab: .constant(.first))
+        CustomTabView(selectedTab: .constant(.first), isSheetShowing: .constant(false))
     }
 }

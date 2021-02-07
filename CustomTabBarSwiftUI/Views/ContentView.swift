@@ -16,6 +16,7 @@ enum Tab {
 
 struct ContentView: View {
     @State private var selectedTab: Tab = .first
+    @State private var isSheetShowing = false
     
     var body: some View {
         VStack {
@@ -29,10 +30,20 @@ struct ContentView: View {
                     SecondView()
                 }
             }
-            CustomTabView(selectedTab: $selectedTab)
+            CustomTabView(selectedTab: $selectedTab, isSheetShowing: $isSheetShowing)
                 .frame(height: 50)
             
         }
+        .sheet(isPresented: $isSheetShowing, content: {
+            ZStack {
+                Color(.systemRed)
+                    .ignoresSafeArea()
+                Text("This is a sheet")
+                    .font(.system(size: 30, weight: .bold))
+                    .foregroundColor(.white)
+            }
+        })
+        
     }
 }
 
